@@ -1,5 +1,16 @@
-let nombre = prompt('Mi nombre es Gabriel, y el tuyo?');
-let edad = parseInt(prompt('tengo 21 años, y tu?'));
+function agregarPantalla(value){
+    document.getElementById("pantalla").value+=value;
+}
+function limpiarPantalla(){
+    document.getElementById("pantalla").value="";
+}
+function calcular(){
+    try{
+        let result =eval( document.getElementById("pantalla").value);
+        document.getElementById("pantalla").value = result;
 
-console.log('el nombre es',nombre);
-console,log('la edad es',edad);
+    }catch (error){
+        document.getElementById("pantalla").value = "Error";
+
+    }
+}
