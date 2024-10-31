@@ -29,7 +29,6 @@ app.get('/informacion', (req, res) => {
             <td>${data.email}</td>
         </tr>
     `).join('');
-
     res.send(`
         <!DOCTYPE html>
         <html lang="es">
