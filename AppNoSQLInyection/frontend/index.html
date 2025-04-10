@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login App NoSQL</title>
+</head>
+<body>
+  <h1>Inicia sesión en la app que me pidio el prode se Temas de Segudidad jaja</h1>
+  <form id="loginForm">
+    <label for="username">Usuario :D :</label>
+    <input type="text" id="username" name="username" required /><br/><br/>
+    
+    <label for="password">Contraseña :D :</label>
+    <input type="text" id="password" name="password" required /><br/><br/>
+    
+    <button type="submit">Login</button>
+  </form>
+
+  <p id="resultado"></p>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+  
+      const response = await fetch("/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password })
+      });
+  
+      const text = await response.text();
+      document.getElementById("resultado").innerText = text;
+    });
+  </script>
+</body>
+</html>
